@@ -1,4 +1,4 @@
-# stylix-rs
+# stylix
 
 This is my awesome crate
 

@@ -10,3 +10,25 @@
 //! # assert_eq!(4, sum2(2, 2));
 //! ```
 //!
+use home_config::HomeConfig;
+
+use crate::{
+    error::StylixError,
+    pallet::{RawStylixPallet, StylixPallet},
+};
+
+mod color;
+mod error;
+mod pallet;
+
+pub struct Stylix;
+
+impl Stylix {
+    pub fn load() -> Result<StylixPallet, StylixError> {
+        let raw_pallet: RawStylixPallet = HomeConfig::with_config_dir("stylix", "palette.json")
+            .json()
+            .map_err(|e| StylixError::ConfigLoadError(e))?;
+
+        StylixPallet::parse(raw_pallet)
+    }
+}
