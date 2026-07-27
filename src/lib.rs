@@ -1,6 +1,6 @@
 //! This is my awesome crate
 //!
-//! Here goes some other description of what it is and what is does
+//! Here goes some other other other description of what it is and what is does
 //!
 //! # Examples
 //! ```
@@ -9,3 +9,4 @@
 //! }
 //! # assert_eq!(4, sum2(2, 2));
 //! ```
+//!
