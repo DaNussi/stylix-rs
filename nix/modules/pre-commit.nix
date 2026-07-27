@@ -12,8 +12,8 @@
           enable = true;
           name = "cargo-readme";
           description = "Generate the readme from src files.";
-          files = "src/*";
-          entry = "${pkgs.cargo-readme} > README.md";
+          files = "^src/";
+          entry = "${pkgs.cargo-readme} readme > README.md";
         };
 
       };

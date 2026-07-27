@@ -1,6 +1,5 @@
 //! This is my awesome crate
 //!
-//! Here goes some other other other description of what it is and what is does
 //!
 //! # Examples
 //! ```
