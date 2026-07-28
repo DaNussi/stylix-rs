@@ -35,3 +35,8 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           generate_release_notes: true
+
+      - name: Create Crates.io release
+        run: cargo publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}

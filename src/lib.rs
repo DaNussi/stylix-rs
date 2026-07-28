@@ -10,7 +10,7 @@
 //!
 //! Then, load the palette:
 //!
-//! ```no_run
+//! ```rust
 //! use stylix::Stylix;
 //!
 //! // The palette is loaded from ~/.config/stylix/palette.json
@@ -61,6 +61,29 @@ mod test {
     #[test]
     fn e2e() {
         temp_env::with_var("HOME", Some("./test/home"), || {
+            let home_config = HomeConfig::with_config_dir("stylix", "palette.json");
+            home_config.save(r#"{
+                "base00": "282828",
+                "base01": "3c3836",
+                "base02": "504945",
+                "base03": "665c54",
+                "base04": "928374",
+                "base05": "ebdbb2",
+                "base06": "fbf1c7",
+                "base07": "f9f5d7",
+                "base08": "cc241d",
+                "base09": "d65d0e",
+                "base0A": "d79921",
+                "base0B": "98971a",
+                "base0C": "689d6a",
+                "base0D": "f28534",
+                "base0E": "b16286",
+                "base0F": "9d0006",
+                "author": "Tinted Theming (https://github.com/tinted-theming), morhetz (https://github.com/morhetz/gruvbox)&#34;, Vimjoyer (https://github.com/vimjoyer)",
+                "scheme": "Vimjoyer Gruvbox Dark",
+                "slug": "vimjoyer-gruvbox-dark"
+            }"#).unwrap();
+
             let palette = Stylix::load().unwrap();
             let expected = StylixPalette {
                 base00: Color{ r: 40, g: 40, b: 40},

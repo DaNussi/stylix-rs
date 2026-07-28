@@ -4,9 +4,9 @@ use crate::error::{ParseColorError, StylixError};
 
 #[derive(Default, Debug)]
 pub struct Color {
-    pub(crate) r: u8,
-    pub(crate) g: u8,
-    pub(crate) b: u8,
+    pub r: u8,
+    pub g: u8,
+    pub b: u8,
 }
 
 impl Display for Color {

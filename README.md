@@ -35,5 +35,5 @@ The `Stylix::load()` function returns a `StylixPalette` struct, containing `Colo
 
 
 # Info
-- Current version: 0.1.0
+- Current version: 0.1.1
 - License: MIT OR Apache-2.0
