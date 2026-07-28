@@ -71,3 +71,26 @@ impl PartialEq for Color {
         self.r == other.r && self.g == other.g && self.b == other.b
     }
 }
+
+#[cfg(feature = "ratatui-color")]
+pub mod ratatui_color {
+    use crate::color::Color;
+    use ratatui_core::style::Color as RatatuiColor;
+
+    impl From<Color> for RatatuiColor {
+        fn from(value: Color) -> Self {
+            RatatuiColor::Rgb(value.r, value.g, value.b)
+        }
+    }
+
+    #[test]
+    fn ratatui_conversion() {
+        let color = Color {
+            r: 255,
+            g: 255,
+            b: 255,
+        };
+        let ratatui_color: RatatuiColor = color.into();
+        assert_eq!(ratatui_color, RatatuiColor::Rgb(255, 255, 255));
+    }
+}

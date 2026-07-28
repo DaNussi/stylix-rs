@@ -5,7 +5,7 @@ name = "stylix"
 description = "A simple lib for using Stylix"
 keywords = ["stylix", "nix", "nixos"]
 
-version = "0.1.1"
+version = "0.1.2"
 license = "MIT OR Apache-2.0"
 authors = ["Daniel Nussbaum <info@daniel-nussbaum.at>"]
 
@@ -17,3 +17,9 @@ homepage = "https://github.com/danussi/stylix-rs"
 home-config = { version = "0.7.0", features = ["json"] }
 serde = "1.0.229"
 temp-env = "0.3.6"
+ratatui-core = { version = "0.1.2", optional = true }
+
+[features]
+default = []
+all = ["ratatui-color"]
+ratatui-color = ["dep:ratatui-core"]

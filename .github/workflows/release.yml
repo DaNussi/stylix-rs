@@ -28,7 +28,7 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Build & Test
-        run: cargo build --lib --release --tests --locked
+        run: cargo build --lib --release --tests --locked --features all
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2

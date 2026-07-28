@@ -31,9 +31,28 @@ match Stylix::load() {
 
 The `Stylix::load()` function returns a `StylixPalette` struct, containing `Color` structs for each color value (e.g., `base00`, `base01`, etc.), along with `author`, `scheme`, and `slug` strings.
 
+## Ratatui Color Support
 
+Enable the 'ratatui-color' feature for some quality of live conversion methods.
+
+```rust
+use stylix::color::ratatui_color::From;
+use stylix::color::Color as StylixColor;
+use ratatui_core::style::Color as RatatuiColor;
+
+let stylix_color = StylixColor {
+    r: 255,
+    g: 255,
+    b: 255,
+};
+
+let ratatui_color: RatatuiColor = RatatuiColor::Rgb(255, 255, 255);
+
+assert_eq!(stylix_color.into(), ratatui_color);
+
+```
 
 
 # Info
-- Current version: 0.1.1
+- Current version: 0.1.2
 - License: MIT OR Apache-2.0
