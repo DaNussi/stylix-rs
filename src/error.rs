@@ -28,7 +28,7 @@ impl std::fmt::Display for ParseColorError {
     }
 }
 impl ParseColorError {
-    pub fn to_stylix_error(self) -> StylixError {
+    pub fn into_stylix_error(self) -> StylixError {
         StylixError::ParseColorError(self)
     }
 }

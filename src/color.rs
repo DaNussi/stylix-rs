@@ -28,7 +28,7 @@ impl TryFrom<&str> for Color {
                 value: value.to_owned(),
                 length: value.len(),
             }
-            .to_stylix_error());
+            .into_stylix_error());
         }
 
         let rgb_indexes = if has_prefix {
@@ -51,14 +51,14 @@ impl Color {
             value: value.to_owned(),
             range: range.clone(),
         }
-        .to_stylix_error();
+        .into_stylix_error();
 
         let parse_int_error = |e| {
             ParseColorError::ParseIntError {
                 value: value.to_owned(),
                 error: e,
             }
-            .to_stylix_error()
+            .into_stylix_error()
         };
 
         let text_part = value.get(range.clone()).ok_or(index_out_of_range_error)?;

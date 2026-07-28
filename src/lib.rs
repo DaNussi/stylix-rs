@@ -46,7 +46,7 @@ impl Stylix {
     pub fn load() -> Result<StylixPalette, StylixError> {
         let raw_palette: RawStylixPalette = HomeConfig::with_config_dir("stylix", "palette.json")
             .json()
-            .map_err(|e| StylixError::ConfigLoadError(e))?;
+            .map_err(StylixError::ConfigLoadError)?;
 
         StylixPalette::parse(raw_palette)
     }
