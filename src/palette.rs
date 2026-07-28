@@ -3,7 +3,8 @@ use serde::{Deserialize, Serialize};
 use crate::{color::Color, error::StylixError};
 
 #[derive(Serialize, Deserialize, Default)]
-pub(crate) struct RawStylixPallet {
+#[allow(non_snake_case)]
+pub(crate) struct RawStylixPalette {
     base00: String,
     base01: String,
     base02: String,
@@ -25,32 +26,33 @@ pub(crate) struct RawStylixPallet {
     slug: String,
 }
 
-#[derive(Default)]
-pub struct StylixPallet {
-    base00: Color,
-    base01: Color,
-    base02: Color,
-    base03: Color,
-    base04: Color,
-    base05: Color,
-    base06: Color,
-    base07: Color,
-    base08: Color,
-    base09: Color,
-    base0A: Color,
-    base0B: Color,
-    base0C: Color,
-    base0D: Color,
-    base0E: Color,
-    base0F: Color,
-    author: String,
-    scheme: String,
-    slug: String,
+#[derive(Default, Debug)]
+#[allow(non_snake_case)]
+pub struct StylixPalette {
+    pub base00: Color,
+    pub base01: Color,
+    pub base02: Color,
+    pub base03: Color,
+    pub base04: Color,
+    pub base05: Color,
+    pub base06: Color,
+    pub base07: Color,
+    pub base08: Color,
+    pub base09: Color,
+    pub base0A: Color,
+    pub base0B: Color,
+    pub base0C: Color,
+    pub base0D: Color,
+    pub base0E: Color,
+    pub base0F: Color,
+    pub author: String,
+    pub scheme: String,
+    pub slug: String,
 }
 
-impl StylixPallet {
-    pub(crate) fn parse(value: RawStylixPallet) -> Result<StylixPallet, StylixError> {
-        Ok(StylixPallet {
+impl StylixPalette {
+    pub(crate) fn parse(value: RawStylixPalette) -> Result<StylixPalette, StylixError> {
+        Ok(StylixPalette {
             base00: Color::try_from(value.base00.as_str())?,
             base01: Color::try_from(value.base01.as_str())?,
             base02: Color::try_from(value.base02.as_str())?,
@@ -71,5 +73,29 @@ impl StylixPallet {
             scheme: value.scheme,
             slug: value.slug,
         })
+    }
+}
+
+impl PartialEq for StylixPalette {
+    fn eq(&self, other: &Self) -> bool {
+        self.base00 == other.base00
+            && self.base01 == other.base01
+            && self.base02 == other.base02
+            && self.base03 == other.base03
+            && self.base04 == other.base04
+            && self.base05 == other.base05
+            && self.base06 == other.base06
+            && self.base07 == other.base07
+            && self.base08 == other.base08
+            && self.base09 == other.base09
+            && self.base0A == other.base0A
+            && self.base0B == other.base0B
+            && self.base0C == other.base0C
+            && self.base0D == other.base0D
+            && self.base0E == other.base0E
+            && self.base0F == other.base0F
+            && self.author == other.author
+            && self.scheme == other.scheme
+            && self.slug == other.slug
     }
 }

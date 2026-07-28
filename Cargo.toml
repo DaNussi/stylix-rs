@@ -1,11 +1,19 @@
 [package]
-authors = ["Daniel Nussbaum <info@daniel-nussbaum.at>"]
 edition = "2021"
-# If you change the name here, you must also do it in flake.nix (and run `cargo generate-lockfile` afterwards)
+
 name = "stylix"
-description = "A simple Rust project using Nix"
-version = "0.0.0"
+description = "A simple lib for using Stylix"
+keywords = ["stylix", "nix", "nixos"]
+
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+authors = ["Daniel Nussbaum <info@daniel-nussbaum.at>"]
+
+readme = "README.md"
+repository = "https://github.com/danussi/stylix-rs"
+homepage = "https://github.com/danussi/stylix-rs"
 
 [dependencies]
 home-config = { version = "0.7.0", features = ["json"] }
 serde = "1.0.229"
+temp-env = "0.3.6"

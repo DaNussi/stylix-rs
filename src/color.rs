@@ -4,9 +4,9 @@ use crate::error::{ParseColorError, StylixError};
 
 #[derive(Default, Debug)]
 pub struct Color {
-    r: u8,
-    g: u8,
-    b: u8,
+    pub(crate) r: u8,
+    pub(crate) g: u8,
+    pub(crate) b: u8,
 }
 
 impl Display for Color {
@@ -20,7 +20,10 @@ impl TryFrom<&str> for Color {
     type Error = StylixError;
 
     fn try_from(value: &str) -> Result<Self, Self::Error> {
-        if value.len() != 7 {
+        let has_prefix = value.starts_with('#');
+        let expected_length = if has_prefix { 7 } else { 6 };
+
+        if value.len() != expected_length {
             return Err(ParseColorError::InvalidLength {
                 value: value.to_owned(),
                 length: value.len(),
@@ -28,7 +31,7 @@ impl TryFrom<&str> for Color {
             .to_stylix_error());
         }
 
-        let rgb_indexes = if value.starts_with('#') {
+        let rgb_indexes = if has_prefix {
             [1..3, 3..5, 5..7]
         } else {
             [0..2, 2..4, 4..6]
@@ -60,5 +63,11 @@ impl Color {
 
         let text_part = value.get(range.clone()).ok_or(index_out_of_range_error)?;
         u8::from_str_radix(text_part, 16).map_err(parse_int_error)
+    }
+}
+
+impl PartialEq for Color {
+    fn eq(&self, other: &Self) -> bool {
+        self.r == other.r && self.g == other.g && self.b == other.b
     }
 }
