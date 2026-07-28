@@ -10,7 +10,7 @@
 //!
 //! Then, load the palette:
 //!
-//! ```rust
+//! ```no_run
 //! use stylix::Stylix;
 //!
 //! // The palette is loaded from ~/.config/stylix/palette.json
@@ -31,7 +31,7 @@
 //!
 //! Enable the 'ratatui-color' feature for some quality of live conversion methods.
 //!
-//! ```rust
+//! ```ignore
 //! use stylix::color::ratatui_color::From;
 //! use stylix::color::Color as StylixColor;
 //! use ratatui_core::style::Color as RatatuiColor;
@@ -47,7 +47,7 @@
 //! assert_eq!(stylix_color.into(), ratatui_color);
 //!
 //! ```
-//!
+
 use home_config::HomeConfig;
 
 use crate::{
