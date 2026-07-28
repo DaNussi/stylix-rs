@@ -55,9 +55,9 @@ use crate::{
     palette::{RawStylixPalette, StylixPalette},
 };
 
-mod color;
-mod error;
-mod palette;
+pub mod color;
+pub mod error;
+pub mod palette;
 
 pub struct Stylix;
 
