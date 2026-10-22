@@ -2,7 +2,7 @@ use std::{fmt::Display, ops::Range};
 
 use crate::error::{ParseColorError, StylixError};
 
-#[derive(Default, Debug)]
+#[derive(Default, Debug, Clone, Copy)]
 pub struct Color {
     pub r: u8,
     pub g: u8,

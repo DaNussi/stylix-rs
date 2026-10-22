@@ -74,6 +74,27 @@ impl StylixPalette {
             slug: value.slug,
         })
     }
+
+    pub fn colors(&self) -> [Color; 16] {
+        return [
+            self.base00.clone(),
+            self.base01.clone(),
+            self.base02.clone(),
+            self.base03.clone(),
+            self.base04.clone(),
+            self.base05.clone(),
+            self.base06.clone(),
+            self.base07.clone(),
+            self.base08.clone(),
+            self.base09.clone(),
+            self.base0A.clone(),
+            self.base0B.clone(),
+            self.base0C.clone(),
+            self.base0D.clone(),
+            self.base0E.clone(),
+            self.base0F.clone(),
+        ];
+    }
 }
 
 impl PartialEq for StylixPalette {
