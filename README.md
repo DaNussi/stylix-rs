@@ -54,5 +54,5 @@ assert_eq!(stylix_color.into(), ratatui_color);
 ```
 
 # Info
-- Current version: 0.1.4
+- Current version: 0.1.5
 - License: MIT OR Apache-2.0
